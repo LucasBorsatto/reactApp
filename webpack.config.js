@@ -13,13 +13,11 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
   },
+  eslint: {
+    configFile: './.eslintrc'
+  },
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loaders: ["babel-loader"]
-      },
       {
   	    test: /\.html$/,
   	    loader: "file?name=[name].[ext]"
@@ -27,6 +25,11 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: 'style!css!sass'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel-loader', 'eslint-loader']
       }
     ]
   }

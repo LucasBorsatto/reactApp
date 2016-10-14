@@ -1,14 +1,18 @@
-import React, {Component, PropTypes} from 'react'
-import Form from './Form'
-import { sendTransfer } from '../../actions/actions'
-import { connect } from 'react-redux'
+import React, { Component, PropTypes } from 'react';
+import Form from './Form';
+import { sendTransfer } from '../../actions/actions';
+import { connect } from 'react-redux';
 
 class ContainerForm extends Component {
 
-  handleSubmit(data) {
-    this.props.dispatch(sendTransfer(data))
+  handleSubmit(data) { 
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+    this.props.dispatch(sendTransfer(data));
+    return sleep(5000).then(() => {
+      location.reload();
+    });// simulate server latency
   }
-   
+
   render() {
     return (
       <div>
@@ -19,8 +23,9 @@ class ContainerForm extends Component {
 }
 
 ContainerForm.propTypes = {
-  dispatch: PropTypes.func.isRequired
-}
+  dispatch: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => state
-export default connect(mapStateToProps)(ContainerForm)
+const mapStateToProps = state => state;
+export default connect(mapStateToProps)(ContainerForm);
+
