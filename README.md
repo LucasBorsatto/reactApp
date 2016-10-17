@@ -2,18 +2,18 @@
 
 [React] App usando [Redux] con [webpack] y [babeljs].
 
-Requirements:
+Requisitos:
 - git
 - NodeJS
 - npm
 
-To run the app locally:
+Para correr localmente:
 
 ```bash
 npm install
 npm install webpack-dev-server -g
 webpack-dev-server
-open http://localhost:8080
+abrir http://localhost:8080
 ```
 
 Muchas Gracias!
