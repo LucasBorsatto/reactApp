@@ -10,6 +10,7 @@ Requisitos:
 Para correr localmente:
 
 ```bash
+cd reactApp
 npm install
 npm install webpack-dev-server -g
 webpack-dev-server
