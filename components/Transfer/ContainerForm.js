@@ -9,7 +9,8 @@ class ContainerForm extends Component {
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     this.props.dispatch(sendTransfer(data));
     return sleep(5000).then(() => {
-      location.reload();
+      window.location.href = '/';
+      window.location.location.reload();
     });// simulate server latency
   }
 
